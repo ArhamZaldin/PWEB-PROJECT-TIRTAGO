@@ -1,5 +1,6 @@
 <?php
     require_once '/Applications/XAMPP/xamppfiles/htdocs/database/database.php';
+    
     class Model {
         public $db;
         function __construct() {
@@ -25,7 +26,7 @@
         function getService() {
             $statement = $this->db->prepare("SELECT * FROM layanan");
             $statement->execute();
-            return $statement->fetch();
+            return $statement->fetchAll();
         }
 
         function auth($email, $pass) {
